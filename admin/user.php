@@ -1,3 +1,49 @@
+<?php
+    if(isset($_POST['add'])){
+        if(isset($_POST['username'], $_POST['email'], $_POST['password']) AND !empty($_POST['username']) AND !empty($_POST['email']) AND !empty($_POST['password'])){
+
+        $username = htmlspecialchars($_POST['username']);
+        $email = htmlspecialchars($_POST['email']);
+        $password = md5($_POST['password']);
+        $priority = 1;
+
+        //Database connection
+        $servername = "localhost";
+        $usernamedb = "root";
+        $passworddb = "";
+
+        try {
+          $conn = new PDO("mysql:host=$servername;dbname=fruitful_well", $usernamedb, $passworddb);
+          // set the PDO error mode to exception
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          //$message = "Connected successfully";
+        } catch(PDOException $e) {
+          $message = "Connection failed: " . $e->getMessage();
+        }
+
+        $sql = "INSERT INTO users (username, email, password, priority)
+        VALUES (:username, :email, :password, :priority)";
+
+        $req = $conn->prepare($sql);
+        $req->bindValue(':username', $username);
+        $req->bindValue(':email', $email);
+        $req->bindValue(':password', $password);
+        $req->bindValue(':priority', $priority);
+
+        $req->execute();
+
+        $message =  "User add";
+    }
+    else{
+        $message =  "Fill all the fields";
+    }
+}
+
+else{
+    $message = "Please fill the form";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -465,7 +511,7 @@
                                                 <input type="password" id="password" name="password" class="form-control" aria-required="true" aria-invalid="false">
                                             </div>
                                             <div>
-                                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                                <button id="add" type="submit" name="add" class="btn btn-lg btn-info btn-block">
                                                     <i class="fa fa-lock fa-lg"></i>&nbsp;
                                                     <span id="payment-button-amount">Create user</span>
                                                     <span id="payment-button-sending" style="display:none;">Sending…</span>
@@ -479,7 +525,7 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <strong>User</strong>
-                                        <small> List</small>
+                                        <small> <?=  $message; ?></small>
                                     </div>
                                     <div class="card-body card-block">
                                         
