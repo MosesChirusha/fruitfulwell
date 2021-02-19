@@ -37,7 +37,22 @@ if (isset($_POST['username'], $_POST['password']) AND !empty($_POST['username'])
 		//echo "Welcome";
 		session_start();
 		$_SESSION['username'] = $info['username'];
-		$_SESSION['priority'] = $info['priority'];
+		switch ($info['priority']) {
+			case 1:
+				$type = 'Admin';
+				break;
+			case 2:
+				$type = 'Editor';
+				break;
+			case 3:
+				$type = 'Seller';
+				break;
+			
+			default:
+				$type = 'Unkown';
+				break;
+		}
+		$_SESSION['type'] = $type;
 		header('Location:index.php');
 	}
 	else{

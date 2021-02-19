@@ -1,11 +1,11 @@
 <?php
     if(isset($_POST['add'])){
-        if(isset($_POST['username'], $_POST['email'], $_POST['password']) AND !empty($_POST['username']) AND !empty($_POST['email']) AND !empty($_POST['password'])){
+        if(isset($_POST['username'], $_POST['email'], $_POST['priority'], $_POST['password']) AND !empty($_POST['username']) AND !empty($_POST['email']) AND !empty($_POST['priority']) AND !empty($_POST['password'])){
 
         $username = htmlspecialchars($_POST['username']);
         $email = htmlspecialchars($_POST['email']);
         $password = md5($_POST['password']);
-        $priority = 1;
+        $priority = intval($_POST['priority']);
 
         //Database connection
         $servername = "localhost";
@@ -68,6 +68,14 @@ else{
                                              <div class="form-group">
                                                 <label for="email" class="control-label mb-1">Email</label>
                                                 <input type="email" id="email" name="email" class="form-control" aria-required="true" aria-invalid="false">
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="priority" class="control-label mb-1">Type of user</label>
+                                                <select name="priority" id="priority" class="form-control">
+                                                    <option value="1">Admin</option>
+                                                    <option value="2">Editor</option>
+                                                    <option value="3">Seller</option>
+                                                </select>
                                             </div>
                                              <div class="form-group">
                                                 <label for="password" class="control-label mb-1">Password</label>
