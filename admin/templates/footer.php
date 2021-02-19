@@ -34,9 +34,25 @@
     <script src="vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="vendor/select2/select2.min.js">
     </script>
-
+    <!-- Additional js -->
+    <script src="vendor/ckeditor/ckeditor.js"></script>
     <!-- Main JS-->
     <script src="js/main.js"></script>
+     <script>
+           ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#newarticle").click(function() {
+                $('#formarticle').toggle('slow');
+            });
+        });
+    </script>
+   
 
 </body>
 
