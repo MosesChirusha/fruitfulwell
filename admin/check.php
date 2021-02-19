@@ -4,16 +4,55 @@ if (isset($_POST['username'], $_POST['password']) AND !empty($_POST['username'])
 	$username = htmlspecialchars($_POST['username']);
 	$password = md5($_POST['password']);
 
-	$default  = array(
+	//Connect to database
+	$servername = "localhost";
+    $usernamedb = "root";
+    $passworddb = "";
+
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=fruitful_well", $usernamedb, $passworddb);
+          // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          //echo "Connected successfully";
+    } catch(PDOException $e) {
+        //echo "Connection failed: " . $e->getMessage();
+    }
+    
+    $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+    $req = $conn->prepare($sql);
+    $req->bindValue(':username', $username);
+    $req->bindValue(':password', $password);
+    $req->execute();
+    $info = $req->fetch();
+
+    print_r($info);
+
+	/*$default  = array(
 		'username' => "moses" ,
 		'password' => "123",
 		'priority' => 1
-	);
+	);*/
 
-	if ($username == $default['username'] AND $password == md5($default['password'])) {
+	if (!empty($info)) {
 		//echo "Welcome";
 		session_start();
-		$_SESSION['username'] = $default['username'];
+		$_SESSION['username'] = $info['username'];
+		switch ($info['priority']) {
+			case 1:
+				$type = 'Admin';
+				break;
+			case 2:
+				$type = 'Editor';
+				break;
+			case 3:
+				$type = 'Seller';
+				break;
+			
+			default:
+				$type = 'Unkown';
+				break;
+		}
+		$_SESSION['type'] = $type;
 		header('Location:index.php');
 	}
 	else{
