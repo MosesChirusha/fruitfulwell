@@ -4,6 +4,7 @@
     if (empty($_SESSION['username'])) {
         header('Location: login.php');
     }
+    $title = $_GET['title'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title><?= $title; ?></title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -68,10 +69,10 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.php">E-commerce</a>
+                                    <a href="index.php?title=Dashboard">E-commerce</a>
                                 </li>
                                 <li>
-                                    <a href="blog.php">Blog</a>
+                                    <a href="blog.php?title=Dashboard">Blog</a>
                                 </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
@@ -90,8 +91,8 @@
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a>
+                            <a href="user.php?title=Users">
+                                <i class="far fa-check-square"></i>Users</a>
                         </li>
                         <li>
                             <a href="calendar.html">

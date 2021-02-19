@@ -13,10 +13,10 @@
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="index.php">E-commerce</a>
+                            <a href="index.php?title=Dashboard">E-commerce</a>
                         </li>
                         <li>
-                            <a href="blog.php">Blog</a>
+                            <a href="blog.php?title=Dashboard">Blog</a>
                         </li>
                         <li>
                             <a href="index3.html">Dashboard 3</a>
@@ -35,7 +35,7 @@
                         <i class="fas fa-table"></i>Tables</a>
                 </li>
                 <li>
-                    <a href="user.php">
+                    <a href="user.php?title=Users">
                         <i class="far fa-check-square"></i>Users</a>
                 </li>
                 <li>
