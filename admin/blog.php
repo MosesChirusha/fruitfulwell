@@ -12,7 +12,44 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="title-5 m-b-35">data table</h3>
+                                <div class="card" id="formarticle" style="display: none;">
+                                    <div class="card-header">New Article</div>
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 class="text-center title-2">Compose a post</h3>
+                                        </div>
+                                        <hr>
+                                        <form action="publish.php" method="post" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label for="title" class="control-label mb-1">Title</label>
+                                                <input type="text" id="title" name="title" class="form-control" aria-required="true" aria-invalid="false">
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="editor" class="control-label mb-1">Content</label>
+                                                <textarea id="editor" rows="10" cols="12" name="content"></textarea>
+                                            </div>
+                                             <div class="form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="avatar" class=" form-control-label">Image</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="file" id="avatar" name="avatar" class="form-control-file">
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm" name="publish">
+                                                    <i class="fa fa-dot-circle-o"></i> Publish
+                                                </button>
+                                                <button type="reset" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-ban"></i> Reset
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>   
+                        <div class="col-md-12">
+                            <h3 class="title-5 m-b-35">Recent Articles</h3>
                             <div class="table-data__tool">
                                 <div class="table-data__tool-left">
                                     <div class="rs-select2--light rs-select2--md">
@@ -35,8 +72,8 @@
                                         <i class="zmdi zmdi-filter-list"></i>filters</button>
                                 </div>
                                 <div class="table-data__tool-right">
-                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small" id="newarticle">
+                                        <i class="zmdi zmdi-plus"></i>Compose</button>
                                     <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                         <select class="js-select2" name="type">
                                             <option selected="selected">Export</option>

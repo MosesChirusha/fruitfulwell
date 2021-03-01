@@ -1,7 +1,7 @@
-CoolAdmin Bootstrap 4.1 Admin Dashboard Template
+Fruitful well Dashborad -version 1.0.0
 ================================================
 
-**CoolAdmin** is a responsive Bootstrap 4.1 admin template. It provides you with
+**Dashboard** is a responsive Bootstrap 4.1 admin template. It provides you with
 a collection of ready to use code snippets and utilities, custom pages, loads of
 charts, 4 different dashboard variations, a collection of applications and some
 useful widgets. Preview of this awesome admin template available here:
