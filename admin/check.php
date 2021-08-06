@@ -2,7 +2,7 @@
 if (isset($_POST['username'], $_POST['password']) AND !empty($_POST['username']) AND !empty($_POST['password'])) {
 	//echo "Successfully loged in";
 	$username = htmlspecialchars($_POST['username']);
-	$password = md5($_POST['password']);
+	$password = $_POST['password'];
 
 	//Connect to database
 	$servername = "localhost";
