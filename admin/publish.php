@@ -23,7 +23,7 @@ if (isset($_POST['publish'])) {
 		  $message = "Connection failed: " . $e->getMessage();
 		}
 
-		$sql = "INSERT INTO blog (title, author, content, avatar, date_post)
+		$sql = "INSERT INTO blog (article_title, article_author, article_content, cover_image, date_post)
 		VALUES (:title, :author, :content, :avatar, NOW())";
 
 		$req = $conn->prepare($sql);
