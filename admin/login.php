@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Login</title>
+    <title>Fruitful-Well | Login</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -43,7 +43,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="images/icon/logo.png" alt="Fruitful Well">
+                                <img src="images/icon/fruitful-well.png" alt="Fruitful Well">
                             </a>
                         </div>
                         <div class="login-form">
@@ -64,18 +64,18 @@
                                         <a href="#">Forgotten Password?</a>
                                     </label>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Login</button>
                                 <div class="social-login-content">
                                     <div class="social-button">
-                                        <button class="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</button>
-                                        <button class="au-btn au-btn--block au-btn--blue2">sign in with twitter</button>
+                                        <button class="au-btn au-btn--block au-btn--blue m-b-20">Login with facebook</button>
+                                        <button class="au-btn au-btn--block au-btn--blue2">Login with google +</button>
                                     </div>
                                 </div>
                             </form>
                             <div class="register-link">
                                 <p>
-                                    Don't you have account?
-                                    <a href="#">Request</a>
+                                    Don't have an account?
+                                    <a href="#">Request validation</a>
                                 </p>
                             </div>
                         </div>
