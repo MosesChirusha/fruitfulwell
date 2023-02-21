@@ -2,18 +2,11 @@
 /*
 ob_start();
 session_start();
-include("inc/config.php");
-include("inc/functions.php");
-include("inc/CSRF_Protect.php");
-$csrf = new CSRF_Protect();
-$error_message = '';
-$success_message = '';
-$error_message1 = '';
-$success_message1 = '';
+include("dbcon.php");
 
 // Check if the user is logged in or not
 if(!isset($_SESSION['user'])) {
-	header('location: login.php');
+	header('location: home.php');
 	exit;
 }*/
 ?>
@@ -92,7 +85,7 @@ if(!isset($_SESSION['user'])) {
       			<ul class="sidebar-menu">
 
 			        <li class="treeview <?php if($cur_page == 'index.php') {echo 'active';} ?>">
-			          <a href="index.php">
+			          <a href="home.php">
 			            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 			          </a>
 			        </li>

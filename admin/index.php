@@ -1,101 +1,55 @@
-<?php require_once('header.php'); ?>
-
-<section class="content-header">
-	<h1>Dashboard</h1>
-</section>
-
-<section class="content">
-<div class="row">
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-primary">
-                <div class="inner">
-                  
-
-                  <p>Products</p>
-                </div>
-                <div class="icon">
-                  <i class="ionicons ion-android-cart"></i>
-                </div>
-                
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-maroon">
-                <div class="inner">
-                 
-
-                  <p>Pending Orders</p>
-                </div>
-                <div class="icon">
-                  <i class="ionicons ion-clipboard"></i>
-                </div>
-                
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-green">
-                <div class="inner">
-                  
-                  <p>Completed Orders</p>
-                </div>
-                <div class="icon">
-                  <i class="ionicons ion-android-checkbox-outline"></i>
-                </div>
-               
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                 
-
-                  <p>Completed Deliveries</p>
-                </div>
-                <div class="icon">
-                  <i class="ionicons ion-checkmark-circled"></i>
-                </div>
-                
-              </div>
-            </div>
-			<!-- ./col -->
+<?php session_start(); ?>
+<?php include('dbcon.php'); ?>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="form-wrapper">
+  
+  <form action="#" method="post">
+    <h3>Login here</h3>
+	
+    <div class="form-item">
+		<input type="text" name="user" required="required" placeholder="Username" autofocus required></input>
+    </div>
+    
+    <div class="form-item">
+		<input type="password" name="pass" required="required" placeholder="Password" required></input>
+    </div>
+    
+    <div class="button-panel">
+		<input type="submit" class="button" title="Log In" name="login" value="Login"></input>
+    </div>
+  </form>
+  <?php
+	if (isset($_POST['login']))
+		{
+			$username = mysqli_real_escape_string($con, $_POST['user']);
+			$password = mysqli_real_escape_string($con, $_POST['pass']);
 			
-			<div class="col-lg-3 col-xs-6">
-				<!-- small box -->
-				<div class="small-box bg-orange">
-				  <div class="inner">
+			$query 		= mysqli_query($con, "SELECT * FROM users WHERE  password='$password' and username='$username'");
+			$row		= mysqli_fetch_array($query);
+			$num_row 	= mysqli_num_rows($query);
+			
+			if ($num_row > 0) 
+				{			
+					$_SESSION['user_id']=$row['user_id'];
+					header('location:home.php');
 					
+				}
+			else
+				{
+					echo 'Invalid Username and Password Combination';
+				}
+		}
+  ?>
+  <div class="reminder">
+    <p>Not a member? <a href="#">Sign up now</a></p>
+    <p><a href="#">Forgot password?</a></p>
+  </div>
   
-					<p>Pending Deliveries</p>
-				  </div>
-				  <div class="icon">
-					<i class="ionicons ion-load-a"></i>
-				  </div>
-				  
-				</div>
-			  </div>
+</div>
 
-			  <div class="col-lg-3 col-xs-6">
-				<!-- small box -->
-				<div class="small-box bg-red">
-				  <div class="inner">
-					
-  
-					<p>Active Customers</p>
-				  </div>
-				  <div class="icon">
-					<i class="ionicons ion-person-stalker"></i>
-				  </div>
-				  
-				</div>
-			  </div>
-					
-		  
-</section>
-
+</body>
+</html>
