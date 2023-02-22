@@ -1,5 +1,6 @@
 <?php require_once('header.php'); ?>
 
+
 <section class="content-header">
 	<div class="content-header-left">
 		<h1>View News</h1>
@@ -25,7 +26,27 @@
 							</tr>
 						</thead>
 						<tbody>
-							
+								<?php
+							$i=0;
+							$statement = $pdo->prepare("SELECT * FROM news");
+							$statement->execute();
+							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+							foreach ($result as $row) {
+								$i++;
+								?>
+								<tr>
+									<td><?php echo $i; ?></td>
+									<td style="width:130px;"><img src="../assets/uploads/<?php echo $row['photo']; ?>" alt="<?php echo $row['title']; ?>" style="width:120px;"></td>
+									<td><?php echo $row['title']; ?></td>
+									<td><?php echo $row['content']; ?></td>
+									<td>										
+										<a href="service-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Edit</a>
+										<a href="#" class="btn btn-danger btn-xs" data-href="service-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>  
+									</td>
+								</tr>
+								<?php
+							}
+							?>
 													
 						</tbody>
 					</table>

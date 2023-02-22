@@ -45,8 +45,7 @@
 		}
   ?>
   <div class="reminder">
-    <p>Not a member? <a href="#">Sign up now</a></p>
-    <p><a href="#">Forgot password?</a></p>
+    
   </div>
   
 </div>

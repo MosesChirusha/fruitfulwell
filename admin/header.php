@@ -91,33 +91,7 @@ if(!isset($_SESSION['user'])) {
 			        </li>
 
 
-
-                    <li class="treeview <?php if( ($cur_page == 'size.php') || ($cur_page == 'size-add.php') || ($cur_page == 'size-edit.php') || ($cur_page == 'color.php') || ($cur_page == 'color-add.php') || ($cur_page == 'color-edit.php') || ($cur_page == 'country.php') || ($cur_page == 'country-add.php') || ($cur_page == 'country-edit.php') || ($cur_page == 'shipping-cost.php') || ($cur_page == 'shipping-cost-edit.php') || ($cur_page == 'top-category.php') || ($cur_page == 'top-category-add.php') || ($cur_page == 'top-category-edit.php') || ($cur_page == 'mid-category.php') || ($cur_page == 'mid-category-add.php') || ($cur_page == 'mid-category-edit.php') || ($cur_page == 'end-category.php') || ($cur_page == 'end-category-add.php') || ($cur_page == 'end-category-edit.php') ) {echo 'active';} ?>">
-                      
-                        <ul class="treeview-menu">
-                            <li><a href="size.php"><i class="fa fa-circle-o"></i> Size</a></li>
-                            <li><a href="color.php"><i class="fa fa-circle-o"></i> Color</a></li>
-                            <li><a href="country.php"><i class="fa fa-circle-o"></i> Country</a></li>
-                            <li><a href="shipping-cost.php"><i class="fa fa-circle-o"></i> Shipping Cost</a></li>
-                            <li><a href="top-category.php"><i class="fa fa-circle-o"></i> Top Level Category</a></li>
-                            <li><a href="mid-category.php"><i class="fa fa-circle-o"></i> Mid Level Category</a></li>
-                            <li><a href="end-category.php"><i class="fa fa-circle-o"></i> End Level Category</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li class="treeview <?php if( ($cur_page == 'product.php') || ($cur_page == 'product-add.php') || ($cur_page == 'product-edit.php') ) {echo 'active';} ?>">
-                        <a href="product.php">
-                            <i class="fa fa-shopping-bag"></i> <span>Product Management</span>
-                        </a>
-                    </li>
-
-
-                    <li class="treeview <?php if( ($cur_page == 'order.php') ) {echo 'active';} ?>">
-                        <a href="order.php">
-                            <i class="fa fa-sticky-note"></i> <span>Order Management</span>
-                        </a>
-                    </li>
+                   
 
 
                     <!-- Icons to be displayed on Shop -->
